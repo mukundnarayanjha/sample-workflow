@@ -15,7 +15,7 @@ jobs:
          gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'  
       - run: gh auth status --show-token     
       - run: gh codespace list      
-      - run: gh codespace ssh
+      - run: gh codespace ssh -c mukundnarayanjha-solid-zebra-5xxjwwq45jvcvxq4
       - run: gh codespace ssh --config > ~/.ssh/codespaces
       - run: printf 'Match all\nInclude ~/.ssh/codespaces\n' >> ~/.ssh/config
         
