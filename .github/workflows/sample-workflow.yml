@@ -3,9 +3,7 @@ on: [push]
 jobs:
    build:
      runs-on: ubuntu-latest
-     permissions:
-      issues: write
-      pull-requests: write
+     permissions: read-all|write-all
      steps:
       - uses: actions/checkout@v2  
       #- run: export GITHUB_TOKEN=
