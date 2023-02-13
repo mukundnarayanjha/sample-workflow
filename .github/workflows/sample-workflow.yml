@@ -10,7 +10,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-         echo ${{ secrets.DSSSECRET  }} | gh auth login --with-token
+         echo ${{ github.token  }} | gh auth login --with-token
          gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'
       - run:  gh codespace list
       - run: gh auth refresh -s codespace
