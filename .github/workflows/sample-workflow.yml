@@ -15,7 +15,9 @@ jobs:
          gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'  
       - run: gh auth status --show-token     
       - run: gh codespace list      
-      - run: gh codespace ssh -c mukundnarayanjha-solid-zebra-5xxjwwq45jvcvxq4     
-      - run: cd .. 
+      - run: gh codespace ssh -c mukundnarayanjha-super-adventure-vqq9xxvgq7r3x996     
+      - run: sudo service postgresql initdb 
+      - run: sudo service postgresql start
+      - run: sudo su postgres
      
         
