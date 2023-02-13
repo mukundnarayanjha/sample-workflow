@@ -5,8 +5,7 @@ jobs:
    build:
      runs-on: ubuntu-latest    
      steps:
-      - uses: actions/checkout@v2  
-      #- run: export GITHUB_TOKEN=
+      - uses: actions/checkout@v2       
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ github.token }}
