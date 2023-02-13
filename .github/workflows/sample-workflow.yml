@@ -15,9 +15,7 @@ jobs:
          gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'  
       - run: gh auth status --show-token     
       - run: gh codespace list      
-      - run: gh codespace ssh -c mukundnarayanjha-solid-zebra-5xxjwwq45jvcvxq4
-      - name: List files in the codespaces
-        run: |
-          ls 
+      - run: gh codespace ssh -c mukundnarayanjha-solid-zebra-5xxjwwq45jvcvxq4     
+      - run: cd .. 
      
         
