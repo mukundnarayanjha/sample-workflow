@@ -1,0 +1,20 @@
+name: GitHub Action Demo
+on: [push]    
+jobs:
+   build:
+     runs-on: ubuntu-latest
+     permissions:
+      issues: write
+      pull-requests: write
+     steps:
+      - uses: actions/checkout@v2  
+      #- run: export GITHUB_TOKEN=
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+         echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+         gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'
+      - run:  gh codespace ls
+      - run: gh auth refresh -s codespace
+      - run: gh codespace ssh 
+        
