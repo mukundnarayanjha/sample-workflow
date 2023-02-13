@@ -1,9 +1,9 @@
 name: GitHub Action Demo
 on: [push]    
+permissions: read-all|write-all
 jobs:
    build:
-     runs-on: ubuntu-latest
-     permissions: read-all|write-all
+     runs-on: ubuntu-latest    
      steps:
       - uses: actions/checkout@v2  
       #- run: export GITHUB_TOKEN=
