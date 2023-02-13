@@ -13,8 +13,9 @@ jobs:
       - run: |
          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
          gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'  
-      - run: gh auth status --show-token
-      - run:  gh auth refresh
-      - run:  gh codespace list      
-      - run:  gh codespace ssh 
+      - run: gh auth status --show-token     
+      - run: gh codespace list      
+      - run: gh codespace ssh 
+      - run: gh codespace ssh --config > ~/.ssh/codespaces
+      - run: printf 'Match all\nInclude ~/.ssh/codespaces\n' >> ~/.ssh/config
         
