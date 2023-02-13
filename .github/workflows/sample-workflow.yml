@@ -13,7 +13,7 @@ jobs:
          echo ${{ secrets.PAT_TOKEN }} | gh auth login --with-token
          gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'  
       
-      - run:  gh auth refresh -s codespace
+      - run:  gh auth refresh
       - run:  gh codespace list      
       - run:  gh codespace ssh 
         
