@@ -9,10 +9,11 @@ jobs:
       #- run: export GITHUB_TOKEN=
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
       - run: |
          echo ${{ secrets.PAT_TOKEN }} | gh auth login --with-token
          gh api -X GET /repos/${{ GITHUB.REPOSITORY }}/topics --jq='.names'  
-      
+      - run: gh auth status --show-token
       - run:  gh auth refresh
       - run:  gh codespace list      
       - run:  gh codespace ssh 
